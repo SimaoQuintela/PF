@@ -1,6 +1,7 @@
 data BTree a = Empty
              | Node a (BTree a) (BTree a)
              deriving (Show)
+             
 altura :: BTree a -> Int
 altura Empty = 0 
 altura (Node r e d) = 1 + (max (altura e) (altura d))
@@ -21,14 +22,14 @@ prune x Empty = Empty
 prune x (Node a b c) = Node a (prune (x-1) b) (prune (x-1) c)
 
 
+-- árvore elaborada para testar as funções no cmd
 
 a5 = Node 10 (Node 5 (Node 2 Empty Empty)
-               (Node 7 (Node 6 Empty Empty)
-                       (Node 8 Empty Empty)))
-          (Node 18 (Node 12 Empty Empty)
-                   (Node 21 (Node 19 Empty Empty)
-                      (Node 35 Empty Empty)))
-
+                     (Node 7 (Node 6 Empty Empty)
+                             (Node 8 Empty Empty)))
+             (Node 18 (Node 12 Empty Empty)
+                      (Node 21    (Node 19 Empty Empty)
+                                  (Node 35 Empty Empty)))
 
 --         10
 --       /     \
