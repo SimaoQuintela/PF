@@ -82,17 +82,6 @@ minSmin :: Ord a => BTree a -> (a,BTree a)
 minSmin (Node r Empty d ) = (r,Empty)
 minSmin (Node r e d) = (a, Node r b d)
     where (a,b) = minSmin e
-
---d
-remove :: Ord a => a -> BTree a -> BTree a
-remove x (Node r e d) | x > r = Node r e (remove x d)
-                      | x < r = Node r (remove x e) d 
-                      | otherwise = aux x (Node r e d)
-    where aux x (Node a b c) = case b of Empty -> c
-                                         otherwise -> case c of Empty -> b
-                                                                otherwise -> Node g b h
-                                                                    where (g,h) = minSmin d
-           
                                                                            
  
  --3
@@ -163,22 +152,6 @@ somaDasNotas (Node (_,_,_,d) l r) = case d of
                                     Aprov x -> fromIntegral x + somaDasNotas l + somaDasNotas r
                                     otherwise -> somaDasNotas l + somaDasNotas r
 
---g    Percorre a árvore várias vezes
-{- aprovAv :: Turma -> Float
-   aprovAv Empty = 0
-   aprovAv (Node (a,b,c,d) l r) = case d of 
-                                  Aprov x -> (1 + aprovAv l + aprovAv r) / (1 + avaliados (Node (a,b,c,d) l r))
-                                  Rep -> (aprovAv l + aprovAv r) / (1 + avaliados (Node (a,b,c,d) l r))
-                                  otherwise -> (aprovAv l + aprovAv r) / (avaliados (Node (a,b,c,d) l r))
-   
-   avaliados :: Turma -> Float
-   avaliados Empty = 0
-   avaliados (Node (_,_,_,d) l r) = case d of
-                                    Aprov x -> 1 + avaliados l + avaliados r
-                                    Rep -> 1 + avaliados l + avaliados r 
-                                    _ -> avaliados l + avaliados r                            
-
--}
 --g     Percorre a árvore apenas 1 vez
 
 aprovAV2 :: Turma -> Float
