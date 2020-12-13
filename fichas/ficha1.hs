@@ -83,32 +83,31 @@ adicionaMin x y = min2hora ((hora2min y) + x)
 data Hora2 = H Int Int 
              deriving (Show)
 --a
--- valida2 :: Hora2 -> Bool
--- valida2 (H x y) = if (x >= 0 && x < 24) && (y >= 0 && y <= 60) then True
--- 
--- --b
--- depois :: Hora2 -> Hora2 -> Bool
--- depois (H x y) (H a b) | x > a = True
---                        | x < a = False
---                        | (x == a && y > b) = True
---                        | otherwise = False
--- 
--- --c
--- horaParaMin :: Hora2 -> Int
--- horaParaMin (H x y) = x*60 +y
--- 
--- --d
--- minParaHora :: Int -> Hora2
--- minParaHora x | x < 60 = H 0 x 
---               | otherwise = H (div x 60) (mod x 60)
--- 
--- --e
--- diferencaHora :: Hora2 -> Hora2 -> Hora2
--- diferencaHora (H x y) (H a b) = minParaHora (abs (horaParaMin (H x y) - horaParaMin (H a b)))
--- 
--- --f
--- adiciona :: Int -> Hora2 -> Hora2
--- adiciona x (H a b) = minParaHora (horaParaMin (H a b) + x)
+valida2 :: Hora2 -> Bool
+valida2 (H x y) = if (x >= 0 && x < 24) && (y >= 0 && y <= 60) then True 
+b
+depois :: Hora2 -> Hora2 -> Bool
+depois (H x y) (H a b) | x > a = True
+                       | x < a = False
+                       | (x == a && y > b) = True
+                       | otherwise = False
+ 
+c
+horaParaMin :: Hora2 -> Int
+horaParaMin (H x y) = x*60 +y
+ 
+d
+minParaHora :: Int -> Hora2
+minParaHora x | x < 60 = H 0 x 
+              | otherwise = H (div x 60) (mod x 60)
+ 
+e
+diferencaHora :: Hora2 -> Hora2 -> Hora2
+diferencaHora (H x y) (H a b) = minParaHora (abs (horaParaMin (H x y) - horaParaMin (H a b)))
+ 
+f
+adiciona :: Int -> Hora2 -> Hora2
+adiciona x (H a b) = minParaHora (horaParaMin (H a b) + x)
 
 --5
 data Semaforo = Verde | Amarelo | Vermelho
