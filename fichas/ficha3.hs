@@ -83,11 +83,11 @@ acrescEmail x y [] = [(x,[Email y])]
 acrescEmail x y l = l ++ [(x,[Email y])]
 
 --b
--- verEmails :: Nome -> Agenda -> Maybe [String]
--- verEmails a [] = Nothing
--- verEmails a ((n,c):xs) = if a == n then Just (c : verEmails a xs)
---                          else verEmails a xs
--- Não consegui fazer este exercício
+verEmails :: Nome -> Agenda -> Maybe [String]
+verEmails a [] = Nothing
+verEmails a ((n,c):xs) = if a == n then Just (c : verEmails a xs)
+                         else verEmails a xs
+
 
 --c
 consTelefs :: [Contacto] -> [Integer]
@@ -99,11 +99,11 @@ consTelefs (x:xs) = case x of
     _ -> []
 
 --d
---casa :: Nome -> Agenda -> Maybe Integer
---casa nome [n,(c:cs)] = if nome == n then case c of Casa x -> Just x
---                                                              otherwise -> casa nome [(n,cs)]
---                        else Nothing
---casa nome ((n,c):agenda) = if nome == n then casa nome [(n,c)] else casa nome agenda
+casa :: Nome -> Agenda -> Maybe Integer
+casa nome [n,(c:cs)] = if nome == n then case c of Casa x -> Just x
+                                                             otherwise -> casa nome [(n,cs)]
+                        else Nothing
+casa nome ((n,c):agenda) = if nome == n then casa nome [(n,c)] else casa nome agenda
 
 --4
 type Dia = Int
