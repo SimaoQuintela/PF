@@ -104,9 +104,9 @@ calcula x ((c,g):t) = (c*(x^g)) + calcula x t
 --f
 simp :: Polinomio -> Polinomio
 simp [] = []
-simp [(c,0)] = []
-simp (x:t) = x : simp t
-
+simp [(0,g)] = []
+simp (x:t) = if fst x /= 0 then x : simp t
+             else simp t
 --g
 mult :: Monomio -> Polinomio -> Polinomio
 mult _ [] = []
