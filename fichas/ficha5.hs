@@ -165,4 +165,4 @@ rotateLeft :: Mat a -> Mat a
 rotateLeft [] = []
 rotateLeft m = let l = map last m
                    rm = map init m
-                   in l : rotateLeft rm  
+               in l : rotateLeft rm  
