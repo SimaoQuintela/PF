@@ -45,8 +45,6 @@ verEmails nome [(n,c)]= if nome == n then Just (map (\x -> case x of Email e -> 
 verEmails nome ((n,c):agenda) = if nome == n then verEmails nome [(n,c)] else verEmails nome agenda
 
 --c
--- percorre mais que 1 vez :(( 
-{-
 consulta :: [Contacto] -> ([Integer],[String])
 consulta [] = ([],[])
 consulta (x:xs) = case x of 
@@ -55,8 +53,7 @@ consulta (x:xs) = case x of
     Tlm x -> (x:a,b)
     Email x -> (a, x:b)
   where (a,b) = consulta xs
-
--}
+-----------------------------
 agenda1 = [("Sofia", [Casa 123456789, Tlm 987654321, Email "abc@def.ghi", Email "f@mendess.xyz"]),("Luís", [Tlm 69420]),("Rita", [Trab 58008])]
 --d
 consultaIO :: Agenda -> IO ()
