@@ -1,18 +1,6 @@
 import Data.List
 import Data.Char
--------------
-{- OFF AULA
-data Date = D Int Int Int
-          deriving Eq
-instance Eq Date where
-(D d1 m1 a1 == D d2 m2 a2) = (m1 == m2)
 
-----------------
-
-instance show Date where
-   show D d m a = "dia" ++ show d ++ "do" ++ show m ++ "do"
-
--}
 data Frac = F Integer Integer
 --1
 --a
