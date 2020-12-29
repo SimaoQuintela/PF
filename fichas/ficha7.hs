@@ -45,19 +45,7 @@ altura (R a []) = 1
 altura (R a l) = 1 + maximum (map altura l)
 
 --c 
-{- resolução 1 , não sei se tá certo
-prune :: Int -> RTree a -> RTree a 
-prune 0 (R a l) = R a l 
-prune x (R a l) = prune (x-1) (R a (init l)) -}
 
-{- resolução 2 , não sei se tá certo
-prune :: Int -> RTree a -> RTree a 
-prune 0 t = t
-prune 1 (R a l) = R a []
-prune x (R a (h:t)) = R a (prune (x-1) t)
--}
-
--- resolução 3, está correta
 prune :: Int -> RTree a -> RTree a 
 prune 1 (R a l) = R a []
 prune x (R a [] ) | x > 1 = R a []
