@@ -120,7 +120,8 @@ instance Ord Data where
 
 --b
 instance Show Data where
---  show (D d m a) = "dia" ++ show d ++ "de" ++ show m ++ "de" ++ show   (será que posso fazer assim?)
+    show (D d m a) = "dia" ++ show d ++ "de" ++ show m ++ "de" ++ show   (será que posso fazer assim?)
+--------------------------------- OU  ---------------------------------------------
     show (D d m a) = concat $ intersperse "/" $ map (show) [d,m,a]
 
 --c repetir isto 
