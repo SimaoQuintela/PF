@@ -13,7 +13,7 @@ posicao (x,y) (h:t) = case h of
     Sul -> posicao (x,y-1) t 
     Este -> posicao (x+1,y) t 
     otherwise -> posicao (x-1,y) t 
-
+--3
 any' :: (a -> Bool) -> [a] -> Bool
 any' f [] = False  
 any' f (x:xs) = if f x == True then True 
