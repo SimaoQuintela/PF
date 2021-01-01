@@ -19,7 +19,7 @@ any' f [] = False
 any' f (x:xs) = if f x == True then True 
                else any' f xs
 
---4 refazer depois
+--4 repetir
 type Mat a = [[a]]
 
 triSup :: (Num a,Eq a) => Mat a -> Bool
