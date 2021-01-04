@@ -50,7 +50,7 @@ semMinimo (Node r Empty d) = d
 semMinimo (Node r e d) = Node r (semMinimo e) d 
 
 --4
---a
+--a acabar o exercício 4 depois
 exemplo = ["..R.",
            "R...",
            "...R",
