@@ -51,21 +51,6 @@ semMinimo (Node r e d) = Node r (semMinimo e) d
 
 --4
 --a acabar o exercício 4 depois
-exemplo = ["..R.",
-           "R...",
-           "...R",
-           ".R.."]
-
-type Tabuleiro = [String]
-
-posicoes :: Tabuleiro -> [(Int,Int)]
-posicoes [] = []
-posicoes (x:xs) = [(colunas x , linhas (x:xs))] ++ (posicoes xs) 
-
-colunas :: String -> Int 
-colunas (x:xs) = case x of
-    '.' -> 1 + colunas xs
-    'R' -> 0
 
 
 
