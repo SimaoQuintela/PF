@@ -83,10 +83,6 @@ acrescEmail x y [] = [(x,[Email y])]
 acrescEmail x y l = l ++ [(x,[Email y])]
 
 --b
-verEmails :: Nome -> Agenda -> Maybe [String]
-verEmails a [] = Nothing
-verEmails a ((n,c):xs) = if a == n then Just (c : verEmails a xs)
-                         else verEmails a xs
 
 
 --c
