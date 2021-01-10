@@ -101,7 +101,7 @@ type Mat a = [[a]]
 
 --a
 dimOK :: Mat a -> Bool
-dimOK l = all (\x -> length x == length l) l
+dimOK (l:ls) = all (\x -> length x == length l) ls
 
 --b
 dimMat :: Mat a -> (Int, Int)
