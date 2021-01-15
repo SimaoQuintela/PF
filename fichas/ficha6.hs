@@ -68,7 +68,7 @@ unzipBT (Node (a,b,c) e d) = ((Node a l1 r1) , (Node b l2 r2) , (Node c l3 r3))
 --2
 --a
 minimo :: Ord a => BTree a -> a 
-minimo (Node r Empty Empty) = r
+minimo (Node r Empty _) = r
 minimo (Node _ e _) = minimo e
 
 --b
