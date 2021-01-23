@@ -4,10 +4,6 @@ import Data.Char
 data Frac = F Integer Integer
 --1
 --a
-normaliza :: Frac -> Frac
-normaliza (F x y) =  F (x `div` (mdc x y)) (y `div` (mdc x y))
---- ou
---forma da stora
 normaliza' :: Frac -> Frac
 normaliza' (F x y) = F (div x m) (div y m)
     where m = mdc x y
