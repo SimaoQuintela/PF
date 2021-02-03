@@ -77,6 +77,20 @@ acumula :: Int -> [Int] -> Int
 acumula acc [] = 0
 acumula acc (x:xs) = (10^acc) * x + acumula (acc-1) xs
 
+--7 
+maxSumInit :: (Num a , Ord a) => [a] -> a 
+maxSumInit l = foldl (\acc x -> max acc (sum x)) (sum l) (inits l) 
+
+-- or 
+
+maxSumInit' :: (Num a , Ord a) => [a] -> a
+maxSumInit' [] = 0
+maxSumInit' l = aux 0 (inits l)
+    where   aux acc [] = acc
+            aux acc (x:xs) = if acc > sum x then aux acc xs 
+                           else aux (sum x) xs
+
+
 
 --8 
 fib :: Int -> Int
