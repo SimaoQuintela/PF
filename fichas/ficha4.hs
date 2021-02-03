@@ -75,10 +75,10 @@ fromDigits l = acumula ((length l)-1) l
 
 acumula :: Int -> [Int] -> Int
 acumula acc [] = 0
-acumula acc (x:xs) = (10^acc) * x + acumula (acc-1) 
+acumula acc (x:xs) = (10^acc) * x + acumula (acc-1) xs
 
 
---8 dúvidas nisto
+--8 
 fib :: Int -> Int
 fib n = acc n (0,1)
     where 
