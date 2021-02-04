@@ -37,18 +37,33 @@ prof n (Tip a) = replicate n '.' ++ show a ++ "\n"
 prof n (Fork l r) = prof (n+1) l ++ prof (n+1) r 
 
 --4
-maxSumInit :: (Num a,Ord a) => [a] -> a
+maxSumInit :: (Num a , Ord a) => [a] -> a
 maxSumInit l = foldl (\acc x -> max (sum x) acc) (sum l) (inits l)
+
+-- outro método (também com acumulador)
+
+maxSumInit' :: (Num a , Ord a) => [a] -> a
+maxSumInit' l = aux 0 (inits l)
+    where   aux acc [x] =  acc 
+            aux acc (x:y:xs) = if sum x >= sum y then aux (sum x) (x:xs)
+                             else aux (sum y) (y:xs) 
 
 --5
 type RelP a = [(a,a)] 
 type RelL a = [(a,[a])]
 type RelF a = ([a], a -> [a])
---a repetir 
+--a 
+{-
 convPL :: (Eq a) => RelP a -> RelL a
 convPL [(x,y)] = [(x,[y])]
 convPL (h:t) = junta h (convPL t)
     where junta (a,b) l = if a `elem` map (fst) l 
                           then map (\(c,d) -> if c == a then (c,b:d) else (c,d)) l 
                           else (a,[b]):l
-
+-}
+-- outro método 
+convPL :: (Eq a) => RelP a -> RelL a 
+convPL [] = []
+convPL ((a,b):xs) = (a, map snd x) : convPL y 
+    where x = takeWhile (\(x,y) -> x == a) ((a,b):xs) 
+          y = dropWhile (\(x,y) -> x == a) ((a,b):xs)
