@@ -43,7 +43,7 @@ maxSumInit l = foldl (\acc x -> max (sum x) acc) (sum l) (inits l)
 -- outro método (também com acumulador)
 
 maxSumInit' :: (Num a , Ord a) => [a] -> a
-maxSumInit' l = aux [] (inits l)
+maxSumInit' l = aux 0 (inits l)
     where   aux acc [x] =  acc 
             aux acc (x:y:xs) = if sum x >= sum y then aux (sum x) (x:xs)
                              else aux (sum y) (y:xs) 
