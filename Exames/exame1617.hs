@@ -1,7 +1,7 @@
 --1
 --a
 unlines' :: [String] -> String
-unlines' [] = []
+unlines' [x] = x
 unlines' (x:xs) = x ++ "\n" ++ unlines' xs 
 
 --b  tenho de otimizar esta shit  
@@ -50,7 +50,14 @@ semMinimo (Node r Empty d) = d
 semMinimo (Node r e d) = Node r (semMinimo e) d 
 
 --4
---a acabar o exercício 4 depois
+--a conta as posições até mesmo quando o tabuleiro não é válido
+posicoes :: Tabuleiro -> [(Int,Int)]
+posicoes [] = []
+posicoes (x:xs) = aux x 0 (length x - length (x:xs)) ++ posicoes xs 
 
-
+aux :: String -> Int -> Int -> [(Int,Int)]
+aux [] _ _ = []
+aux (x:xs) acc1 acc2 = case x of 
+  '.' -> aux xs (acc1+1) (acc2)
+  'R' -> [(acc1,acc2)] ++ aux xs (acc1+1) acc2 
 
