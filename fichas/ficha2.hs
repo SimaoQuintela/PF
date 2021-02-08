@@ -112,13 +112,24 @@ mult :: Monomio -> Polinomio -> Polinomio
 mult _ [] = []
 mult (c1,g1) ((c,g):t) = (c1*c,g1+g) : mult (c1,g1) t
 
---h REPETIR ESTE EXERCÍCIO COM URGÊNCIA
+--h 
 normaliza' :: Polinomio -> Polinomio
 normaliza' [] = []
 normaliza' [(b,e)] = [(b,e)]
 normaliza' ((b, e) : (b2, e2) : ps)   | e == e2 = normaliza' ((b + b2, e) : ps)
                                       | conta e ps == 0 = (b, e) : normaliza' ((b2, e2) : ps)
                                       | otherwise = normaliza' ((b, e) : ps ++ [(b2, e2)])
+                                      
+--h normaliza o polinómio e ordena-o de forma descrecente tendo em conta o grau
+normaliza :: Polinomio -> Polinomio 
+normaliza [] = []
+normaliza l = reverse (normaliza2 (sortOn snd l))
+
+normaliza2 :: Polinomio -> Polinomio
+normaliza2 [x] = [x]
+normaliza2 ((a,b):(c,d):xs) = if b == d then normaliza2 ((a+c,b):xs)
+                              else (a,b) : normaliza2 ((c,d):xs)
+                                    
 --i
 soma :: Polinomio -> Polinomio -> Polinomio
 soma p1 p2 = normaliza' (p1 ++ p2)
