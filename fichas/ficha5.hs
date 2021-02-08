@@ -69,10 +69,10 @@ simp' l = filter (\x -> fst x /= 0) l
 mult' :: Monomio -> Polinomio -> Polinomio
 mult' (c,g) = map (\(c2,g2) -> (c*c2,g+g2))
 --h
---ordena' :: Polinomio -> Polinomio
---ordena' l = foldr (\x -> insert x) [] l
+ordena' :: Polinomio -> Polinomio
+ordena' l = reverse (sortOn snd l)
 
---i  -- muita dificuldade neste
+--i 
 {-normaliza :: Polinomio -> Polinomio
 normaliza [a] = [a]
 normaliza [] = []
