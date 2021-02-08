@@ -73,24 +73,24 @@ ordena' :: Polinomio -> Polinomio
 ordena' l = reverse (sortOn snd l)
 
 --i 
-{-normaliza :: Polinomio -> Polinomio
+normaliza :: Polinomio -> Polinomio
 normaliza [a] = [a]
 normaliza [] = []
 normaliza (h:t) = foldl (\((c,e):p) (c',e')-> if e==e'
 	                                     then (c+c',e):t
 	                                     else ((c',e')(c,e):t)) h t
--}
+
 --j
-{-
+
 soma :: Polinomio -> Polinomio -> Polinomio
 soma p1 p2 = normaliza $ (++) p1 p2
--}
+
 
 --k
 produto' :: Polinomio -> Polinomio -> Polinomio
 produto' p1 p2 = foldl (\acc x -> soma (mult x p2) acc) [] p1
 
---l --- ?????????????
+--l 
 equiv' :: Polinomio -> Polinomio -> Bool
 equiv' p1 p2 | normaliza' p1 == normaliza' p2 = True
              | otherwise = False
