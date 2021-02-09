@@ -67,7 +67,7 @@ data Avaliacao = NaoVi
 
 type FilmesAval = [(Filme,[Avaliacao])]
 
---a não está totalmente correto
+--a está com erros de sintaxe
 -- avalia :: FilmesAval -> IO FilmesAval 
 -- avalia ((a,b):xs) = do  putStrLn "Insira o nome do filme"
 --                         x <- getLine 
